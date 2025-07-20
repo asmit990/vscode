@@ -1,0 +1,55 @@
+{
+  "name": "bitbuddy-extension",
+  "displayName": "BitBuddy",
+  "description": "Track your coding activity in bits and snapshots – right inside VS Code.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "./dist/extension.js",
+  "scripts": {
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "prepublish": "npm run compile"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:bitbuddy.takeSnapshot",
+    "onCommand:bitbuddy.showPanel",
+    "onCommand:bitbuddy.trackUsage"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "bitbuddy.takeSnapshot",
+        "title": "BitBuddy: Take Snapshot"
+      },
+      {
+        "command": "bitbuddy.showPanel",
+        "title": "BitBuddy: Show Snapshot History"
+      },
+      {
+        "command": "bitbuddy.trackUsage",
+        "title": "BitBuddy: Track Usage"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "bitbuddy.takeSnapshot",
+        "key": "ctrl+z ctrl+r",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.15",
+    "@types/vscode": "^1.102.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
